@@ -10,8 +10,6 @@ def devide_catalogue():
     # Pasamos la clave al Dashboard de la API para la autenticación
     dashboard = meraki.DashboardAPI(API_KEY)
 
-    # Este es el ID de la organización en la MDM
-    organization_id = '584342051651322784'
     # Este es el ID de la red en Meraki
     network_id = 'N_584342051651361715'
 
@@ -29,9 +27,6 @@ def devide_catalogue():
         response[i].pop('ssid')
         response[i].pop('hasChromeMdm')
 
-    # Imprimimos el diccionario
-    # print(response)
-
     # Comienza la insercion a la base de datos
     try:
         with conexion.cursor() as cursor:
@@ -47,4 +42,5 @@ def devide_catalogue():
     finally:
         conexion.close()
 
-devide_catalogue()
+# Ejecutamos la funcion
+# devide_catalogue()
