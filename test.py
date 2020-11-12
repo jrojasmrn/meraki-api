@@ -69,28 +69,56 @@ except Exception as e:
 finally:
     conexion.close()
 '''
-from pydatabase import conexion
-try:
-    with conexion.cursor() as cursor:
-        valores = [
-            {
-                'titulo': 'ff',
-                'anio': 1999
-            },
-            {
-                'titulo': 'fffff',
-                'anio': 7854
-            }
-        ]
-        #print(valores)
-        for dict in valores:
-            values = ', '.join("'" + str(x).replace('/', '_') + "'" for x in dict.values())
-            sql = "INSERT INTO %s (titulo,anio) VALUES ( %s );" % ('peliculas', values)
-            print(sql)
-            cursor.execute(sql)
-            cursor.commit()
-            print("Se ingreso con exito")
-except Exception as e:
-    print("Error al ingresar datos: ",e)
-finally:
-    conexion.close()
+# Insertar informacion desde un dict
+# from pydatabase import conexion
+# try:
+#     with conexion.cursor() as cursor:
+#         valores = [
+#             {
+#                 'titulo': 'ff',
+#                 'anio': 1999
+#             },
+#             {
+#                 'titulo': 'fffff',
+#                 'anio': 7854
+#             }
+#         ]
+#         #print(valores)
+#         for dict in valores:
+#             values = ', '.join("'" + str(x).replace('/', '_') + "'" for x in dict.values())
+#             sql = "INSERT INTO %s (titulo,anio) VALUES ( %s );" % ('peliculas', values)
+#             print(sql)
+#             cursor.execute(sql)
+#             cursor.commit()
+#             print("Se ingreso con exito")
+# except Exception as e:
+#     print("Error al ingresar datos: ",e)
+# finally:
+#     conexion.close()
+
+# Combinar dos dicts
+dict1 = [
+    {
+        'Titulo': 'Juano',
+        'Edad': 23
+    },
+    {
+        'Titulo': 'Banano',
+        'Edad': 20
+    }
+
+]
+dict2 = [
+    {
+        'Direccion': 'EDOMEX',
+        'Telefono': 5521190023
+    },
+    {
+        'Direccion': 'CDMX',
+        'Telefono': 5514691810
+    }
+]
+for key in dict1:
+    for key2 in dict2:
+        key.update(key2)
+print(key)
