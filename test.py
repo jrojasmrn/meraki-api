@@ -97,28 +97,36 @@ finally:
 #     conexion.close()
 
 # Combinar dos dicts
-dict1 = [
-    {
-        'Titulo': 'Juano',
-        'Edad': 23
-    },
-    {
-        'Titulo': 'Banano',
-        'Edad': 20
-    }
+# dict1 = [
+#     {
+#         'Titulo': 'Juano',
+#         'Edad': 23
+#     },
+#     {
+#         'Titulo': 'Banano',
+#         'Edad': 20
+#     }
+#
+# ]
+# dict2 = [
+#     {
+#         'Direccion': 'EDOMEX',
+#         'Telefono': 5521190023
+#     },
+#     {
+#         'Direccion': 'CDMX',
+#         'Telefono': 5514691810
+#     }
+# ]
+# for key in dict1:
+#     for key2 in dict2:
+#         key.update(key2)
+# print(key)
 
-]
-dict2 = [
-    {
-        'Direccion': 'EDOMEX',
-        'Telefono': 5521190023
-    },
-    {
-        'Direccion': 'CDMX',
-        'Telefono': 5514691810
-    }
-]
-for key in dict1:
-    for key2 in dict2:
-        key.update(key2)
-print(key)
+#Fechas con Python
+from datetime import datetime
+
+date = {
+    'received_on': str(datetime.now())
+}
+print(date)
