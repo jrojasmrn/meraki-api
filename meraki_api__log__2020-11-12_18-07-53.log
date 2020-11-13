@@ -1,0 +1,7 @@
+2020-11-12 18:07:53       meraki:     INFO > Meraki dashboard API session initialized with these parameters: {'version': '1.2.0', 'api_key': '************************************fbb4', 'base_url': 'https://api.meraki.com/api/v1', 'single_request_timeout': 60, 'certificate_path': '', 'requests_proxy': '', 'wait_on_rate_limit': True, 'nginx_429_retry_wait_time': 60, 'action_batch_retry_wait_time': 60, 'retry_4xx_error': False, 'retry_4xx_error_wait_time': 60, 'maximum_retries': 2, 'simulate': False, 'be_geo_id': None, 'caller': None}
+2020-11-12 18:07:53       meraki:    DEBUG > {'tags': ['sm', 'monitor', 'devices', 'cellularUsageHistory'], 'operation': 'getNetworkSmDeviceCellularUsageHistory', 'method': 'GET', 'url': '/networks/N_584342051651361715/sm/devices/584342051651875398/cellularUsageHistory', 'params': None}
+2020-11-12 18:07:53       meraki:     INFO > GET https://api.meraki.com/api/v1/networks/N_584342051651361715/sm/devices/584342051651875398/cellularUsageHistory
+2020-11-12 18:07:54       meraki:     INFO > sm, getNetworkSmDeviceCellularUsageHistory - 200 OK
+2020-11-12 18:07:54       meraki:    DEBUG > {'tags': ['sm', 'monitor', 'devices', 'connectivity'], 'operation': 'getNetworkSmDeviceConnectivity', 'page': 1}
+2020-11-12 18:07:54       meraki:     INFO > GET https://api.meraki.com/api/v1/networks/N_584342051651361715/sm/devices/584342051651875398/connectivity
+2020-11-12 18:07:54       meraki:     INFO > sm, getNetworkSmDeviceConnectivity; page 1 - 200 OK

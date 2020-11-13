@@ -45,12 +45,13 @@ def conectivity_info(vehicle_id, device_id):
                     key.update(key2)
                     key.update(received_on)
                 values = ', '.join("'" + str(x).replace('/', '_') + "'" for x in key.values())
-                sql = "INSERT INTO %s (Vehicle_Id, Meraki_id, Received, Sent, Ts, First_Seen_At, Last_Seen_At, Received_On) VALUES (%s, %s, %s);" % ('conectivity_info_device', vehicle_id, device_id, values)
+                sql = "INSERT INTO %s (Vehicle_Id, Meraki_id, Received, Sent, Ts, First_Seen_At, Last_Seen_At, Received_On) VALUES (%s, %s, %s);" % ('Meraki.conectivity_info_device', vehicle_id, device_id, values)
                 cursor.execute(sql)
                 cursor.commit()
     except Exception as e:
         print("Ocurrio un error al insertar: ", e)
+        #cursor.rollback()
     finally:
         conexion.close()
 
-conectivity_info(123456789, 584342051651875398)
+conectivity_info(316, 584342051651875398)
