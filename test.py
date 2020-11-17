@@ -124,9 +124,29 @@ finally:
 # print(key)
 
 #Fechas con Python
-from datetime import datetime
+# from datetime import datetime
+#
+# date = {
+#     'received_on': str(datetime.now())
+# }
+# print(date)
 
-date = {
-    'received_on': str(datetime.now())
-}
-print(date)
+# Sustituir un valor de un key
+
+response_data = [
+    {
+        'received': 7156,
+        'sent': 2081,
+        'ts': '2020-10-28T00:00:00.000000Z'
+    },
+    {'received': None, 'sent': None, 'ts': '2020-10-29T00:00:00.000000Z'},
+    {'received': 1010, 'sent': 288, 'ts': '2020-10-30T00:00:00.000000Z'},
+    {'received': None, 'sent': None, 'ts': '2020-11-04T00:00:00.000000Z'},
+    {'received': 18742, 'sent': 1492, 'ts': '2020-11-05T00:00:00.000000Z'}
+]
+for i in response_data:
+    for x in i.items():
+        if x[1] == None:
+            i.update(received='null', sent='null')
+            continue
+    print(i)
