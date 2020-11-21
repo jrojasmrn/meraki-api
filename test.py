@@ -141,12 +141,13 @@ response_data = [
     },
     {'received': None, 'sent': None, 'ts': '2020-10-29T00:00:00.000000Z'},
     {'received': 1010, 'sent': 288, 'ts': '2020-10-30T00:00:00.000000Z'},
-    {'received': None, 'sent': None, 'ts': '2020-11-04T00:00:00.000000Z'},
-    {'received': 18742, 'sent': 1492, 'ts': '2020-11-05T00:00:00.000000Z'}
+    {'received': 540, 'sent': None, 'ts': '2020-11-04T00:00:00.000000Z'},
+    {'received': 18742, 'sent': None, 'ts': '2020-11-05T00:00:00.000000Z'}
 ]
 for i in response_data:
-    for x in i.items():
-        if x[1] == None:
-            i.update(received='null', sent='null')
-            continue
-    print(i)
+    if i['received'] == None:
+        i.update(received='null')
+    if i['sent'] == None:
+        i.update(sent='null')
+
+print(i)
