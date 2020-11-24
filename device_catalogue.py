@@ -33,13 +33,13 @@ def devide_catalogue():
             for dict in response:
                 values = ', '.join("'" + str(x).replace('/', '_') + "'" for x in dict.values())
                 sql = "INSERT INTO %s (Id,Name,Wifi_Mac,Os_Name,System_Model,Uuid,Serial_Number) VALUES (%s);" % (
-                'Meraki.device_catalogue', values)
+                'device_catalogue', values)
                 cursor.execute(sql)
                 cursor.commit()
-        print("Se ingreso con exito")
+        # print("Se ingreso con exito")
     except Exception as e:
         print("Ocurrio un problema al insertar: ", e)
-        #cursor.rollback()
+        cursor.rollback()
     finally:
         conexion.close()
 

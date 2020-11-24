@@ -132,22 +132,64 @@ finally:
 # print(date)
 
 # Sustituir un valor de un key
+# response_data = [
+#     {
+#         'received': 7156,
+#         'sent': 2081,
+#         'ts': '2020-10-28T00:00:00.000000Z'
+#     },
+#     {'received': None, 'sent': None, 'ts': '2020-10-29T00:00:00.000000Z'},
+#     {'received': 1010, 'sent': 288, 'ts': '2020-10-30T00:00:00.000000Z'},
+#     {'received': 540, 'sent': None, 'ts': '2020-11-04T00:00:00.000000Z'},
+#     {'received': 18742, 'sent': None, 'ts': '2020-11-05T00:00:00.000000Z'}
+# ]
+# for i in response_data:
+#     if i['received'] == None:
+#         i.update(received='null')
+#     if i['sent'] == None:
+#         i.update(sent='null')
+#
+# print(i)
 
-response_data = [
+# Timestamp to datetime
+# from datetime import datetime
+# timestamp = 1606190465
+# new_date = datetime.fromtimestamp(timestamp)
+# print(new_date)
+
+# Local time to UTC time
+# import pytz, datetime
+# local = pytz.timezone("America/Los_Angeles")
+# naive = datetime.datetime.strptime("2001-2-3 10:11:12", "%Y-%m-%d %H:%M:%S")
+# local_dt = local.localize(naive, is_dst=None)
+# utc_dt = local_dt.astimezone(pytz.utc)
+# print(utc_dt)
+
+#Prueba de cambio de formato de fechas a UTC
+from datetime import datetime
+import pytz
+response = [
     {
-        'received': 7156,
-        'sent': 2081,
-        'ts': '2020-10-28T00:00:00.000000Z'
+        'id': '584342051651885713',
+        'batteryEstCharge': '85',
+        'lastConnected': 1606192497,
+        'cellularDataUsed': 6457,
+        'location': 'Dr. R. Michel 1310, Mirador',
+        'Received_On': '2020-11-23 22:15:33.047195'
     },
-    {'received': None, 'sent': None, 'ts': '2020-10-29T00:00:00.000000Z'},
-    {'received': 1010, 'sent': 288, 'ts': '2020-10-30T00:00:00.000000Z'},
-    {'received': 540, 'sent': None, 'ts': '2020-11-04T00:00:00.000000Z'},
-    {'received': 18742, 'sent': None, 'ts': '2020-11-05T00:00:00.000000Z'}
+    {
+        'id': '584342051651885713',
+        'batteryEstCharge': '85',
+        'lastConnected': 1606192497,
+        'cellularDataUsed': 6457,
+        'location': 'Dr. R. Michel 1310, Mirador',
+        'Received_On': '2020-11-23 22:15:33.047195'
+    }
 ]
-for i in response_data:
-    if i['received'] == None:
-        i.update(received='null')
-    if i['sent'] == None:
-        i.update(sent='null')
-
-print(i)
+for key in response:
+    # Cambiamos formato de campo lastConnected a datetime
+    timestamp = key['lastConnected']
+    new_date = datetime.fromtimestamp(timestamp)
+    stamp_utc = new_date.astimezone(pytz.utc)
+    key.update(lastConnected=stamp_utc)
+    print(key)
